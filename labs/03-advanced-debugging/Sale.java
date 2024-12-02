@@ -6,7 +6,22 @@
 5. Fix the bug by initializing the items array in the Sale constructor and test the system to ensure that items can now be added to a sale.
 */
 
+import java.util.Scanner;
+
 public class Sale {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter item name: ");
+        String item = scanner.next();
+        System.out.print("Enter item price: ");
+        double price = scanner.nextDouble();
+        System.out.print("Enter item quantity: ");
+        int quantity = scanner.nextInt();
+
+        Sale sale = new Sale();
+        sale.addItem(new Item(item, price, quantity));
+    }
   
     private Item[] items;
     private int itemCount;
@@ -24,6 +39,30 @@ public class Sale {
         total += item.getPrice() * item.getQuantity();
         System.out.println("Item added successfully.");
         System.out.println("Sale total: " + total);
+    }
+
+    static class Item{
+        private String name;
+        private double price;
+        private int quantity;
+
+        public Item(String name, double price, int quantity) {
+            this.name = name;
+            this.price = price;
+            this.quantity = quantity;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public double getPrice() {
+            return price;
+        }
+
+        public int getQuantity() {
+            return quantity;
+        }
     }
 }
 
