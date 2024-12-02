@@ -7,8 +7,7 @@
 */
 
 public class Sale {
-  
-    private Item[] items;
+    private final Item[] items;
     private int itemCount;
     private double total;
 
